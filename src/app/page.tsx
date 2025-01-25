@@ -1,4 +1,6 @@
-import LandingPage from "@/features/landing-page/landing-page";
+"use client";
+
+import LandingPage from "@/modules/landing-page/landing-page";
 
 export default function Home() {
   return <LandingPage />;

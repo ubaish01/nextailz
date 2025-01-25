@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect, useRef } from "react";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { Button } from "@/components/ui/button";
@@ -112,7 +110,7 @@ export default function LandingPage() {
           <div className="flex items-center space-x-4">
             <Button variant="ghost" asChild>
               <a
-                href="https://github.com"
+                href="https://github.com/ubaish01/nextailz"
                 target="_blank"
                 rel="noreferrer noopener"
               >
