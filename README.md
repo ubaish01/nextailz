@@ -1,36 +1,115 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# nextailz
+
+A modern, scalable template for Next.js applications with built-in best practices.
+
+## Tech Stack
+
+- **Next.js 14**: App router, server components, and optimized performance
+- **TypeScript**: Type safety and better developer experience
+- **TailwindCSS**: Utility-first CSS framework
+- **shadcn/ui**: Pre-built, customizable components
+- **Zustand**: Lightweight state management
+
+## Why This Stack?
+
+- **Next.js 14**: Latest features like server components and streaming. Better SEO and performance.
+- **TypeScript**: Catch errors early, better IDE support, improved maintainability
+- **TailwindCSS**: Rapid UI development, consistent styling, no CSS conflicts
+- **shadcn/ui**: Accessible components, customizable source code, no external dependencies
+- **Zustand**: Simple but powerful state management, minimal boilerplate
+
+## Project Structure
+
+```
+src/
+├── app/                     # Next.js app router pages
+├── components/
+│   ├── ui/                 # shadcn/ui components
+│   └── shared/             # Shared components
+├── features/               # Feature-based modules
+│   ├── auth/
+│   │   ├── components/
+│   │   ├── hooks/
+│   │   └── store.ts
+│   └── [feature]/
+├── lib/
+│   ├── utils/             # Utility functions
+│   └── config/            # App configuration
+└── types/                 # Global TypeScript types
+```
+
+### Why This Structure?
+
+- **Feature-Based Organization**: Each feature is self-contained with its components, hooks, and state
+- **Clear Separation**: Components, business logic, and utilities are clearly separated
+- **Scalability**: Easy to add new features without affecting existing ones
+- **Maintainability**: Clear locations for different types of code
+- **Reusability**: Shared components and utilities are easily accessible
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/ubaish01/nextailz.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Start development server:
 
-## Learn More
+```bash
+pnpm dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Adding New Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Create a new directory in `features/`
+2. Add feature-specific components, hooks, and state
+3. Export through feature's index.ts
+4. Import where needed
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Best Practices
 
-## Deploy on Vercel
+- Keep components small and focused
+- Use TypeScript strictly - no `any` types
+- Follow feature-based organization
+- Keep shared code to a minimum
+- Document complex logic
+- Write meaningful commit messages
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Why Use This Template?
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Save Time
+
+- Skip configuration and setup
+- Pre-built components ready to use
+- Proven architecture patterns
+
+### Scale Well
+
+- Feature-based organization
+- Clear separation of concerns
+- TypeScript for type safety
+
+### Stay Clean
+
+- Consistent code structure
+- Best practices built in
+- No technical debt from poor setup
+
+## Contributing
+
+1. Fork the repository
+2. Create feature branch (`git checkout -b feature/improvement`)
+3. Commit changes (`git commit -am 'Add improvement'`)
+4. Push to branch (`git push origin feature/improvement`)
+5. Open Pull Request
+
+## License
+
+MIT License - feel free to use in your projects.
