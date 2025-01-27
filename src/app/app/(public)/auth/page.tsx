@@ -8,3 +8,7 @@ const Auth = () => {
 };
 
 export default Auth;
+
+// axios setup
+// Validations
+// Zustand

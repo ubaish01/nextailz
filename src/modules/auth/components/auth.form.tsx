@@ -1,10 +1,14 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Mail, Lock, User } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { GOOGLE_ICON } from "../constant";
+import useAuth from "../hooks/use-auth";
+import { useRouter } from "next/navigation";
 
 type AuthProps = {
   isLogin: boolean;
@@ -12,6 +16,26 @@ type AuthProps = {
 };
 
 const AuthForm = ({ isLogin, toggleLogin }: AuthProps) => {
+  const [loginData, setLoginData] = useState({ email: "", password: "" });
+  const { login } = useAuth();
+  const router = useRouter();
+
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setLoginData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleLogin = (e: React.MouseEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const onSuccess = () => {
+      router.push("/app/profile");
+      console.log("API SUCCESS!");
+    };
+    const onFailure = () => console.log("API FAILED!");
+    login(loginData, onSuccess, onFailure);
+    // console.log(loginData);
+  };
+
   return (
     <motion.div
       key={isLogin ? "form-login" : "form-signup"}
@@ -31,7 +55,7 @@ const AuthForm = ({ isLogin, toggleLogin }: AuthProps) => {
           </p>
         </div>
 
-        <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+        <form className="space-y-4" onSubmit={handleLogin}>
           {!isLogin && (
             <div className="relative">
               <User className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
@@ -41,15 +65,27 @@ const AuthForm = ({ isLogin, toggleLogin }: AuthProps) => {
 
           <div className="relative">
             <Mail className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
-            <Input type="email" placeholder="Email" className="pl-10" />
+            <Input
+              name="email"
+              onChange={onChange}
+              type="email"
+              placeholder="Email"
+              className="pl-10"
+            />
           </div>
 
           <div className="relative">
             <Lock className="absolute left-3 top-3 h-5 w-5 text-muted-foreground" />
-            <Input type="password" placeholder="Password" className="pl-10" />
+            <Input
+              name="password"
+              onChange={onChange}
+              type="password"
+              placeholder="Password"
+              className="pl-10"
+            />
           </div>
 
-          <Button className="w-full">
+          <Button type="submit" className="w-full">
             {isLogin ? "Sign In" : "Create Account"}
           </Button>
 
