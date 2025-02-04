@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -25,7 +23,7 @@ const AuthForm = ({ isLogin, toggleLogin }: AuthProps) => {
     setLoginData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleLogin = (e: React.MouseEvent<HTMLFormElement>) => {
+  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const onSuccess = () => {
       router.push("/app/profile");
@@ -33,17 +31,13 @@ const AuthForm = ({ isLogin, toggleLogin }: AuthProps) => {
     };
     const onFailure = () => console.log("API FAILED!");
     login(loginData, onSuccess, onFailure);
-    // console.log(loginData);
   };
 
   return (
     <motion.div
-      key={isLogin ? "form-login" : "form-signup"}
-      initial={{ x: isLogin ? 100 : 0, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      exit={{ x: isLogin ? 0 : 100, opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      className="w-1/2 p-8 flex flex-col justify-center"
+      animate={{ x: isLogin ? "100%" : "0%" }}
+      transition={{ type: "tween", duration: 0.5 }}
+      className="absolute left-0 w-1/2 h-full bg-background p-8 flex flex-col justify-center"
     >
       <div className="space-y-6 w-full max-w-sm mx-auto">
         <div className="text-center">
@@ -100,13 +94,13 @@ const AuthForm = ({ isLogin, toggleLogin }: AuthProps) => {
             </div>
           </div>
 
-          <div className=" gap-4">
+          <div className="gap-4">
             <Button variant="outline" className="w-full h-10">
               <Image
-                width={100}
-                height={100}
+                width={24}
+                height={24}
                 alt="google-icon"
-                className="size-6"
+                className="mr-2"
                 src={GOOGLE_ICON}
               />
               Login with Google
@@ -117,7 +111,7 @@ const AuthForm = ({ isLogin, toggleLogin }: AuthProps) => {
             <button
               onClick={toggleLogin}
               type="button"
-              className="text-sm text-muted-foreground "
+              className="text-sm text-muted-foreground  transition-colors"
             >
               {isLogin ? (
                 <div>
