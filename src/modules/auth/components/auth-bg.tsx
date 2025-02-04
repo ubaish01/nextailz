@@ -10,12 +10,9 @@ type Props = {
 const AuthBg = ({ isLogin }: Props) => {
   return (
     <motion.div
-      key={isLogin ? "login-image" : "login-form"}
-      initial={{ x: isLogin ? -100 : 0, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      exit={{ x: isLogin ? 0 : -100, opacity: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`w-1/2 ${isLogin ? "order-first" : "order-last"}`}
+      animate={{ x: isLogin ? "0%" : "100%" }}
+      transition={{ type: "tween", duration: 0.5 }}
+      className="absolute left-0 w-1/2 h-full"
     >
       <Image
         src={AUTH_BG}
@@ -24,6 +21,7 @@ const AuthBg = ({ isLogin }: Props) => {
         height={0}
         sizes="100vw"
         className="w-full h-full object-cover"
+        priority
       />
     </motion.div>
   );
