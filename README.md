@@ -4,7 +4,7 @@ A modern, scalable template for Next.js applications with built-in best practice
 
 ## Tech Stack
 
-- **Next.js 14**: App router, server components, and optimized performance
+- **Next.js 15**: App router, server components, and optimized performance
 - **TypeScript**: Type safety and better developer experience
 - **TailwindCSS**: Utility-first CSS framework
 - **shadcn/ui**: Pre-built, customizable components
@@ -12,7 +12,7 @@ A modern, scalable template for Next.js applications with built-in best practice
 
 ## Why This Stack?
 
-- **Next.js 14**: Latest features like server components and streaming. Better SEO and performance.
+- **Next.js 15**: Latest features like server components and streaming. Better SEO and performance.
 - **TypeScript**: Catch errors early, better IDE support, improved maintainability
 - **TailwindCSS**: Rapid UI development, consistent styling, no CSS conflicts
 - **shadcn/ui**: Accessible components, customizable source code, no external dependencies
